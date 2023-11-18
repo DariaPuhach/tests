@@ -163,7 +163,7 @@
     //   }
     //   Перепишіть код нижче використовуючи одну конструкцію switch:
 
-      let a = +prompt('a?', '');
+      // let a = +prompt('a?', '');
       
       // if (a == 0) {
       //   alert( 0 );
@@ -190,3 +190,155 @@
 //     default: 
 //     alert("Невходить у діапазон")
 // }
+
+// todo Напиши скрипт, який для об'єкта user послідовно:
+//   - додасть поле mood зі значенням 'happy'
+//   - замінить hobby на 'skydiving'
+//   - замінить значення premium на false
+//   - виводить вміст об'єкта user у форматі ключ:значення,
+// використовуючи Object.keys() і for...of
+
+// const user = {
+//   name: 'John',
+//   age: 20,
+//   hobby: 'tennis',
+//   premium: true,
+// }
+
+// user.mood = 'happy';
+// user.hobby = 'skydiving';
+// user.premium = false;
+// for(const keys of Object.keys(user)){
+//   console.log(`${keys}:${user[keys]}`)
+//   або
+//   console.log(keys+":"+user[keys])
+// }
+
+// todo У нас є об'єкт, у якому зберігаються заробітні плати команди.
+// Напишіть код для отримання суми усіх зарплат і збережіть його результат у змінній sum
+// Якщо об'єкт salaries порожній, то результат повинен бути 0
+
+// const salaries = {
+//   Mango: 100,
+//   Poly: 160,
+//   Ajax: 1470,
+// }
+
+// // let sum = 0;
+// // for( const key of Object.keys(salaries)){
+// //   sum += salaries[key];
+// // }
+// або
+// for(const value of Object.values(salaries)){
+//   sum += value;
+// }
+
+// todo Напишіть функцію calcTotalPrice(stones, stonesName), яка приймає масив об'єктів та рядок із назвою каменя.
+// Функція рахує і повертає загальну вартість каменів з таким іменем, ціною та кількістю з об'єкта
+
+// const stonesArray = [
+//   { name: 'Ізумруд', price: 1300, quantity: 4 },
+//   { name: 'Брилліант', price: 2700, quantity: 6 },
+//   { name: 'Сапфір', price: 400, quantity: 7 },
+//   { name: 'Щебінь', price: 150, quantity: 100 },
+// ]
+
+
+// todo Створіть об'єкт calculator із трьома методами
+// read(a, b) - приймає два аргументи і зберігає їх як властивості об'єкта
+// sum() повертає суму збережених значень
+// mult() помножує збережені значення і повертає результат
+
+// const calculator ={
+//   read(a, b){
+//     calculator.a=a;
+//     calculator.b=b;
+//   },
+//   sum(){
+//     return calculator.a + calculator.b;
+//   },
+//   mult(){
+//     return calculator.a * calculator.b;
+//   },
+// }
+// calculator.read(5, 8)
+// console.log(calculator.sum())
+// console.log(calculator.mult())
+
+// const calculator2 ={
+
+// }
+
+// calculator2.read2 = calculator.read;
+// calculator2.sum2 = calculator.sum;
+// calculator2.mult2 = calculator.mult;
+
+// // calculator2.read2(9, 4)
+// console.log(calculator2.sum2())
+// console.log(calculator2.mult2())
+
+
+// todo Напишіть функцію updateObject, яка приймає об'єкт і повертає новий об'єкт без вказаних параметрів
+// Результат, що очікується ({a: 1, b: 2, c: 3}, 'b', 'a') => {c: 3}
+
+// function updateObject(obj, ...args){
+//   const newObject={};
+//   const keys = Object.keys(obj);
+ 
+//     for(const key of keys){
+//       if(!args.includes(key)){
+//         newObject[key] = obj[key];
+//       }
+//     }
+//     return newObject
+// }
+
+
+// function updateObject(obj, ...args){
+//   const newObject={...obj};
+ 
+ 
+//     for(const key of args){
+//       delete newObject[key];
+//     }
+//     return newObject
+// }
+
+// const arrNumber = [5, 4, 3, 2, 1]
+// // Напишіть функцію, яка розвертає масив у зворотньому напрямку.Метод reverse() не використовувати
+// function reverseArr(array){
+//   const newArr=[];
+//   for(let i = array.length - 1; i >= 0; i--){
+//     newArr.push(array[i]);
+//   }
+//   return newArr
+// }
+
+// Напишіть функцію, яка очистить масив від небажаних значень, таких як false, undefined, порожні рядки, нуль, null
+// Результат, що очікується[0, 1, false, 2, undefined, '', 3, null] => [1, 2, 3]
+// function cleanArray(arr){
+//   const result = [];
+//   for(const item of arr){
+//     if(item){
+//       result.push(item);
+//     }
+//   }
+//   return result
+// }
+
+// console.log(cleanArray(0, 1, false, 2, undefined, '', 3, null));
+
+// Напишіть функцію, що прибирає значення, які повторюються
+// Очікується[1, 2, 3, 1, 2] => [1, 2, 3]
+
+function dell(arr){
+  const newArr=[];
+  for( let i of arr){
+    if(!newArr.includes(i)){
+      newArr.push(i);
+    }
+  }
+  return newArr
+}
+
+console.log(dell([1, 2, 3, 1, 2]));
