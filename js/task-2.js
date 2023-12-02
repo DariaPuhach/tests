@@ -331,14 +331,249 @@
 // Напишіть функцію, що прибирає значення, які повторюються
 // Очікується[1, 2, 3, 1, 2] => [1, 2, 3]
 
-function dell(arr){
-  const newArr=[];
-  for( let i of arr){
-    if(!newArr.includes(i)){
-      newArr.push(i);
-    }
+// function dell(arr){
+//   const newArr=[];
+//   for( let i of arr){
+//     if(!newArr.includes(i)){
+//       newArr.push(i);
+//     }
+//   }
+//   return newArr
+// }
+
+// console.log(dell([1, 2, 3, 1, 2]));
+
+// Напишіть функцію, яка повертає об"єкт, який складається зі значень вкладених масивів. Перше значення - ключ, друге - значення
+// Результат, що очікується  [['a', 1], ['b', 2]] => { a: 1, b: 2 }
+// const array = [["a",1],["b",2]]
+// function arrToObj(arr){
+//   const resultObj={};
+//   for(const[key,velue] of arr){
+//     resultObj[key]=value;
+//   }
+//   return resultObj
+// }
+
+// console.log(arrToObj(array))
+
+
+// Напишіть фукнцію, яка порівнює два масиви і повертає true, якщо вони ідентичні
+// Очікується([1, 2, 3], [1, 2, 3]) => true
+// Очікується([4, 5, 5], [1, 2, 3]) => false
+// Очікується([4, 5, 5,6,7], [1, 2, 3]) => false
+
+// function arraysEdentical(arr1, arr2){
+//   if(arr1.length !=== arr2.length){
+//     return false
+//   }
+//   for(let i=0; i<arr1.length; i++){
+//     if(arr1[i] !== arr2[i]){
+//       return false
+//     }
+//     return true
+//   }
+// }
+
+// console.log(arraysEdentical([1, 2, 3], [1, 2, 3]))
+// console.log(arraysEdentical([4, 5, 5], [1, 2, 3]))
+// console.log(arraysEdentical([4, 5, 5,6,7], [1, 2, 3]))
+
+// Напишіть функцію, яка перетворює глибокий масив в одномірний. Не використовувати array.flat()
+// Очікується[1, 2, [3, 4, [5]]] => [1, 2, 3, 4, 5]
+// function flatArr(arr){
+//  let newArr=[];
+//   for(const val of arr){
+//     if(Array.isArray(val)){
+//       newArr.push(newArr.concat(flatArr(val)))
+     
+//     }else{
+//       newArr.push(val);
+//     }
+//   }
+// }
+
+//  const newArr=[];
+// function flatArr(arr){
+ 
+//    for(const val of arr){
+//      if(Array.isArray(val)){
+//       flatArr(val);
+      
+//      }else{
+//        newArr.push(val);
+//      }
+//    }
+//  }
+
+// Напишіть функцію, яка розділяє масив на частини вказано розміру
+// Очікується  ([1, 2, 3, 4, 5], 2) => [[1, 2], [3, 4], [5]]
+// function spliteArray(arr,val){
+//   const result=[];
+//   for(let value=0; value<arr.length; value+=val){
+//     result.push(arr.slice(value, value+val));
+//   }
+//   return result;
+// }
+// console.log(spliteArray([1, 2, 3, 4, 5], 2));
+
+
+
+
+// Напишіть дві функції
+// letMeSeeYourName(callback) - запитує ім"я користувача через prompt та викликає callback функцію
+// greet(name) - колбек, що приймає ім"я та виводить у консоль рядок "Привіт < name > "
+// Потрібно реалізувати перевірку, що prompt не порожній
+// function letMeSeeYourName(callback){
+//   const prm = prompt("введіть імя");
+//   callback(prm);
+// }
+// function greet(name){
+//   console.log(привіт ${name});
+// }
+// letMeSeeYourName(greet)
+
+
+
+// Напишіть дві функції
+// makeProduct(name, price, callback) - приймає ім"я та ціну товару, а також callback
+// Функція створює об"єкт товару, додає йому унікальний ідентифікатор у властивість id та викликає callback,
+// передаючи йому створений об"єкт
+// showProduct(product)  - колбек, що приймає об"єкт продукта та виводить його у консоль
+// function makeProduct(name, price, callback){
+//   const product= {
+//     name,
+//     price,
+//     id:Date.now()
+//   }
+//   callback(product)
+// }
+// function showProduct(product){
+//   console.log(product);
+// }
+// makeProduct("cup", 200, showProduct)
+
+// Потрібно виконати рефакторинг коду так, щоб не потрібно було кожного разу передавати ім"я шефа
+// Напишіть функцію makeShef(shefName), яка повертає функцію makeDish(dish),
+//     яка пам"ятає ім"я шефа під час свого виклику
+// const makeDish = function (shefName, dish) {
+//   console.log(`${shefName} is cooking ${dish}`)
+// }
+
+// // makeDish('Mango', 'apple pie')
+// // makeDish('Poly', 'muffins')
+
+// const makeShef= function(shefName){
+//   return function(dish){
+//     console.log(`${shefName} is cooking ${dish}`);
+//   }
+// }
+
+// const name1Shef = makeShef("name1")
+
+// name1Shef("some muffins")
+
+
+// Потрібно виправити помилки, щоб код працював
+// const product = {
+//   price: 5000,
+//   showPrice() {
+//     console.log(this.price)
+//   },
+// }
+// product.showPrice()
+
+
+// const arrNumber = [ 11, 9, 2, 1 ]
+// Напишіть функцію, яка розверає масив у зворотньому напрямку.Метод reverse() не використовувати
+// const arrNumber = [ 11, 9, 2, 1 ];
+// function reverse(arr){
+//   return arr.map((item, index, array)=>array[array.length-1-index])
+// }
+// console.log(reverse(arrNumber ));
+
+// Напиши клас Client, який створює об"єкт із властивостями login та email
+// оголоси приватні властивості #login #email, доступ до яких зроби через геттер та сеттер login email
+// class Client{
+//   #login
+//   #email
+
+//   constructor(log,mail){
+//     this.#login=log;
+//     rhis.#email=mail;
+//   }
+//   get login(){
+//     return this.#login
+//   } 
+//   set login(newLogin){
+//     this.#login=newLogin
+//   }
+
+//   get mail(){
+//     return this.#email
+//   } 
+//   set mail(newmail){
+//     this.#email=newmail
+//   }
+// }
+// const boby=new Client("Boby", "bobymail@gmail.com")
+// console.log(boby);
+// console.log(boby.login);
+// console.log(boby.email);
+// console.log(boby.login="val");
+// console.log(boby.email="val@gmail.com");
+
+//  Написати клас, який буде представляти зоопарк тварин.
+//  Створити загальний клас Animal для тварин.
+// У зоопарку повинні бути різні типи тварин, такі як ссавці, птахи, рептилії тощо.
+// Кожен тип тварин повинен мати свої властивості та методи, наприклад,
+//  методи для отримання інформації про тварину та для годівлі тварин.
+//  Крім того, зоопарк повинен мати метод для додавання тварин до списку та
+// метод для виведення списку всіх тварин у зоопарку.
+class Animal{
+  constructor(name,type){ 
+  this.name =name;
+  this.type=type;}
+ 
+}
+getInfo(){
+  return`name:${this.name}, type;${this.type}`;
+}
+feed(){
+  return `${this.name} is being fed`
+}
+ class Bird extends Animal{
+  constructor(name,type,food){ 
+    super(name, type);
+    this.food=food;
   }
-  return newArr
+  getInfo(){
+    return`${super.getInfo()}, food:${this.food}`;
+  }
+ }
+ class Reptile extends Animal{
+  constructor(name,type,color){ 
+    super(name, type);
+    this.color=color;
+  }
+  getInfo(){
+    return`${super.getInfo()}, color:${this.color}`;
+  }
+ }
+
+class Zoo{
+constructor(){
+  this.animals=[];
+}
+addAnimal(animal){
+  this.animals.push(animal);
+}
+getAllAnimals(){
+   this.animals.forEach(animal=>console.log(animal.getInfo()))
+}
 }
 
-console.log(dell([1, 2, 3, 1, 2]));
+const zoo = new Zoo();
+const eagle = new Bird("eagle","bird","meat");
+const snake= new Reptile("snake","reptile","yellow");
+zoo.addAnimal(eagle)
+zoo.addAnimal(snake)
